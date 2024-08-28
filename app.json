@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "secfb",
-    "slug": "secfb",
+    "name": "SECFB",
+    "slug": "SECFB",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -13,24 +13,29 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.jbura.SECFB"
     },
     "plugins": [
       "expo-router"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d68d1a31-2687-48d3-955d-12c0da6c4060"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/d68d1a31-2687-48d3-955d-12c0da6c4060"
+    },
+    "android": {}
   }
 }
