@@ -52,6 +52,10 @@ export const getTimeUntil = (date: string, time: string) => {
 
   const differenceInMillis = targetDateTime.getTime() - currentDate.getTime();
 
+  if (differenceInMillis <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
   const millisecondsPerSecond = 1000;
   const millisecondsPerMinute = millisecondsPerSecond * 60;
   const millisecondsPerHour = millisecondsPerMinute * 60;
