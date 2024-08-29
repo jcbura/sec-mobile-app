@@ -1,3 +1,4 @@
+import { useFocusEffect } from "expo-router";
 import { Image, Text, View } from "react-native";
 
 import { getTimeUntil, formatDate, formatTime } from "@/lib/scripts";
@@ -17,6 +18,10 @@ const Countdown = ({ game }: Props) => {
   );
 
   useEffect(() => {
+    setTimeLeft(
+      getTimeUntil(game.game_date || "", game.game_time || "00:00:00")
+    );
+
     const interval = setInterval(() => {
       setTimeLeft(
         getTimeUntil(game.game_date || "", game.game_time || "00:00:00")
