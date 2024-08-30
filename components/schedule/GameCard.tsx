@@ -149,12 +149,15 @@ const GameCard = ({ game, team }: Props) => {
               {game.stadium.toUpperCase()}
             </Text>
           </View>
-          <View className="flex flex-row gap-4 justify-center items-center">
+          <View className="flex flex-row gap-2 justify-center items-center">
             {game.game_played ? (
               <>
                 <Text
                   style={{ fontFamily: "Teko" }}
-                  className="text-[30%] text-center tracking-widest"
+                  className={clsx("text-[30%] text-center tracking-widest", {
+                    "text-green-500": gameResult === "W",
+                    "text-red-500": gameResult === "L",
+                  })}
                 >
                   {gameResult}
                 </Text>
