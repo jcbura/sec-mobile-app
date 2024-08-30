@@ -22,12 +22,12 @@ const GameCard = ({ game, team }: Props) => {
 
   const teamScore = homeGame ? game.home_score : game.away_score;
   const opponentScore = homeGame ? game.away_score : game.home_score;
-  let gameResult: "W" | "L" | undefined = undefined;
-  if (teamScore && opponentScore && teamScore > opponentScore) {
-    gameResult = "W";
-  } else {
-    gameResult = "L";
-  }
+  const gameResult: "W" | "L" | null =
+    teamScore != null && opponentScore != null
+      ? teamScore > opponentScore
+        ? "W"
+        : "L"
+      : null;
 
   const decodedTeam = getDecodedName(team.name);
   const decodedOpponent = getDecodedName(opponent);
@@ -149,9 +149,15 @@ const GameCard = ({ game, team }: Props) => {
               {game.stadium.toUpperCase()}
             </Text>
           </View>
-          <View className="flex flex-col justify-center items-center">
+          <View className="flex flex-row gap-4 justify-center items-center">
             {game.game_played ? (
               <>
+                <Text
+                  style={{ fontFamily: "Teko" }}
+                  className="text-[30%] text-center tracking-widest"
+                >
+                  {gameResult}
+                </Text>
                 <View className="flex flex-row gap-2 justify-center items-center">
                   <Text
                     style={{ fontFamily: "Teko" }}
@@ -267,12 +273,6 @@ const GameCard = ({ game, team }: Props) => {
                     {game.home_score}
                   </Text>
                 </View>
-                <Text
-                  style={{ fontFamily: "Teko" }}
-                  className="text-[20%] text-center tracking-widest text-black/50"
-                >
-                  {gameResult}
-                </Text>
               </>
             ) : (
               <Text
