@@ -39,13 +39,13 @@ const Param = () => {
       <View className="w-full h-full flex flex-col justify-center items-center">
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[25%] text-center tracking-widest"
+          className="text-[22%] text-center tracking-widest"
         >
           CANNOT CONNECT TO INTERNET
         </Text>
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[20%] text-center tracking-widest text-black/50"
+          className="text-[17%] text-center tracking-widest text-black/50"
         >
           PLEASE TRY AGAIN LATER
         </Text>
