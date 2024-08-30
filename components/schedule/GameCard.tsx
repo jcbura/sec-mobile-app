@@ -59,7 +59,7 @@ const GameCard = ({ game, team }: Props) => {
       >
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[25%] text-center tracking-widest py-2 text-white"
+          className="text-[20%] text-center tracking-widest py-2 text-white"
         >{`${day.toUpperCase()} ${date.toUpperCase()}`}</Text>
       </View>
       <View className="w-full p-2 flex flex-col gap-2 justify-center items-center bg-white border border-neutral-300 border-t-0 border-b-0 border-l border-r">
@@ -80,21 +80,21 @@ const GameCard = ({ game, team }: Props) => {
                     {opponentRank && (
                       <Text
                         style={{ fontFamily: "Teko" }}
-                        className="text-[25%] text-center tracking-widest text-black/50"
+                        className="text-[20%] text-center tracking-widest text-black/50"
                       >
                         {opponentRank}
                       </Text>
                     )}
                     <Text
                       style={{ fontFamily: "Teko" }}
-                      className="text-[25%] text-center tracking-widest"
+                      className="text-[20%] text-center tracking-widest"
                     >
                       {opponent.toUpperCase()}
                     </Text>
                   </View>
                   <Text
                     style={{ fontFamily: "Teko" }}
-                    className="text-[20%] text-center tracking-widest text-black/50"
+                    className="text-[15%] text-center tracking-widest text-black/50"
                   >
                     {opponentMascot.toUpperCase()}
                   </Text>
@@ -113,21 +113,21 @@ const GameCard = ({ game, team }: Props) => {
                     {opponentRank && (
                       <Text
                         style={{ fontFamily: "Teko" }}
-                        className="text-[25%] text-center tracking-widest text-black/50"
+                        className="text-[20%] text-center tracking-widest text-black/50"
                       >
                         {opponentRank}
                       </Text>
                     )}
                     <Text
                       style={{ fontFamily: "Teko" }}
-                      className="text-[25%] text-center tracking-widest"
+                      className="text-[20%] text-center tracking-widest"
                     >
                       {opponent.toUpperCase()}
                     </Text>
                   </View>
                   <Text
                     style={{ fontFamily: "Teko" }}
-                    className="text-[20%] text-center tracking-widest text-black/50"
+                    className="text-[15%] text-center tracking-widest text-black/50"
                   >
                     {opponentMascot.toUpperCase()}
                   </Text>
@@ -138,13 +138,13 @@ const GameCard = ({ game, team }: Props) => {
           <View className="flex flex-col justify-center items-center">
             <Text
               style={{ fontFamily: "Teko" }}
-              className="text-[25%] text-center tracking-widest"
+              className="text-[20%] text-center tracking-widest"
             >
               {game.neutral_site ? "NEUTRAL" : homeGame ? "HOME" : "AWAY"}
             </Text>
             <Text
               style={{ fontFamily: "Teko" }}
-              className="text-[20%] text-center tracking-widest text-black/50"
+              className="text-[15%] text-center tracking-widest text-black/50"
             >
               {game.stadium.toUpperCase()}
             </Text>
@@ -154,7 +154,7 @@ const GameCard = ({ game, team }: Props) => {
               <>
                 <Text
                   style={{ fontFamily: "Teko" }}
-                  className={clsx("text-[30%] text-center tracking-widest", {
+                  className={clsx("text-[25%] text-center tracking-widest", {
                     "text-green-500": gameResult === "W",
                     "text-red-500": gameResult === "L",
                   })}
@@ -164,7 +164,7 @@ const GameCard = ({ game, team }: Props) => {
                 <View className="flex flex-row gap-2 justify-center items-center">
                   <Text
                     style={{ fontFamily: "Teko" }}
-                    className={clsx("text-[30%] text-center tracking-widest", {
+                    className={clsx("text-[25%] text-center tracking-widest", {
                       "text-alabama":
                         game.away_score === teamScore &&
                         team.name === "Alabama",
@@ -217,7 +217,7 @@ const GameCard = ({ game, team }: Props) => {
                   <Text
                     style={{ fontFamily: "Teko" }}
                     className={clsx(
-                      "text-[30%] text-center tracking-widest",
+                      "text-[25%] text-center tracking-widest",
                       {}
                     )}
                   >
@@ -225,7 +225,7 @@ const GameCard = ({ game, team }: Props) => {
                   </Text>
                   <Text
                     style={{ fontFamily: "Teko" }}
-                    className={clsx("text-[30%] text-center tracking-widest", {
+                    className={clsx("text-[25%] text-center tracking-widest", {
                       "text-alabama":
                         game.home_score === teamScore &&
                         team.name === "Alabama",
@@ -280,7 +280,7 @@ const GameCard = ({ game, team }: Props) => {
             ) : (
               <Text
                 style={{ fontFamily: "Teko" }}
-                className="text-[30%] text-center tracking-widest"
+                className="text-[25%] text-center tracking-widest"
               >
                 {time}
               </Text>

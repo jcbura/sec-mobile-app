@@ -12,11 +12,11 @@ const Record = ({ team }: Props) => {
       <View className="flex-1 py-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-r border-l-0">
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[30%] text-center tracking-widest"
+          className="text-[25%] text-center tracking-widest"
         >{`${team.total_wins} - ${team.total_losses}`}</Text>
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[20%] text-center tracking-widest text-black/50"
+          className="text-[15%] text-center tracking-widest text-black/50"
         >
           OVERALL
         </Text>
@@ -24,11 +24,11 @@ const Record = ({ team }: Props) => {
       <View className="flex-1 flex flex-col justify-center items-center">
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[30%] text-center tracking-widest"
+          className="text-[25%] text-center tracking-widest"
         >{`${team.conference_wins} - ${team.conference_losses}`}</Text>
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[20%] text-center tracking-widest text-black/50"
+          className="text-[15%] text-center tracking-widest text-black/50"
         >
           CONFERENCE
         </Text>

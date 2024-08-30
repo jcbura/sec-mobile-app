@@ -19,7 +19,7 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         <Pressable onPress={() => setTeams(alpha)}>
           <Text
             style={{ fontFamily: "Teko" }}
-            className={clsx("text-[25%] text-center tracking-widest", {
+            className={clsx("text-[20%] text-center tracking-widest", {
               "text-blue-500":
                 teams === alpha || (teams !== rank && teams !== record),
             })}
@@ -32,7 +32,7 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         <Pressable onPress={() => setTeams(rank)}>
           <Text
             style={{ fontFamily: "Teko" }}
-            className={clsx("text-[25%] text-center tracking-widest", {
+            className={clsx("text-[20%] text-center tracking-widest", {
               "text-blue-500": teams === rank,
             })}
           >
@@ -44,7 +44,7 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         <Pressable onPress={() => setTeams(record)}>
           <Text
             style={{ fontFamily: "Teko" }}
-            className={clsx("text-[25%] text-center tracking-widest", {
+            className={clsx("text-[20%] text-center tracking-widest", {
               "text-blue-500": teams === record,
             })}
           >

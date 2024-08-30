@@ -47,14 +47,14 @@ const TeamCard = ({ nextGame }: Props) => {
         {nextGame.team_rank ? (
           <Text
             style={{ fontFamily: "Teko" }}
-            className="py-2 text-[25%] text-center tracking-widest text-white/80"
+            className="py-2 text-[20%] text-center tracking-widest text-white/80"
           >
             {nextGame.team_rank}
           </Text>
         ) : null}
         <Text
           style={{ fontFamily: "Teko" }}
-          className="py-2 text-[25%] text-center tracking-widest text-white"
+          className="py-2 text-[20%] text-center tracking-widest text-white"
         >{`${nextGame.name.toUpperCase()} ${nextGame.mascot.toUpperCase()}`}</Text>
       </View>
       <View className="w-full p-2 flex flex-col gap-2 justify-center items-center bg-white border border-neutral-300 border-t-0 border-b-0 border-l border-r">
@@ -75,28 +75,28 @@ const TeamCard = ({ nextGame }: Props) => {
             <View className="flex flex-col justify-center items-center">
               <Text
                 style={{ fontFamily: "Teko" }}
-                className="text-[25%] text-center tracking-widest"
+                className="text-[20%] text-center tracking-widest"
               >
                 {`${day.toUpperCase()} ${date.toUpperCase()} - ${time.toUpperCase()}`}
               </Text>
               <View className="flex flex-row gap-2 justify-center items-center">
                 <Text
                   style={{ fontFamily: "Teko" }}
-                  className="text-[20%] text-center tracking-widest text-black/50"
+                  className="text-[15%] text-center tracking-widest text-black/50"
                 >
                   {game?.neutral_site ? "VS" : homeGame ? "VS" : "AT"}
                 </Text>
                 {opponentRank ? (
                   <Text
                     style={{ fontFamily: "Teko" }}
-                    className="text-[20%] text-center tracking-widest text-black"
+                    className="text-[15%] text-center tracking-widest text-black"
                   >
                     {opponentRank}
                   </Text>
                 ) : null}
                 <Text
                   style={{ fontFamily: "Teko" }}
-                  className="text-[20%] text-center tracking-widest text-black/50"
+                  className="text-[15%] text-center tracking-widest text-black/50"
                 >
                   {`${
                     homeGame
@@ -114,7 +114,7 @@ const TeamCard = ({ nextGame }: Props) => {
           <View className="flex flex-col justify-center items-center">
             <Text
               style={{ fontFamily: "Teko" }}
-              className="text-[30%] text-center tracking-widest"
+              className="text-[25%] text-center tracking-widest"
             >
               {`${nextGame.total_wins} - ${nextGame.total_losses}`}
             </Text>

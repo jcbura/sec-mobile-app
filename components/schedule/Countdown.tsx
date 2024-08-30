@@ -1,4 +1,3 @@
-import { useFocusEffect } from "expo-router";
 import { Image, Text, View } from "react-native";
 
 import { teamImages, teamName } from "@/lib/mapping";
@@ -63,13 +62,13 @@ const Countdown = ({ nextGame, team }: Props) => {
       <View className="w-full px-4 pt-2 flex flex-row justify-between items-center">
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[25%] text-center tracking-widest text-black/50"
+          className="text-[20%] text-center tracking-widest text-black/50"
         >
           NEXT GAME
         </Text>
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[25%] text-center tracking-widest"
+          className="text-[20%] text-center tracking-widest"
         >{`${date.toUpperCase()} - ${time.toUpperCase()}`}</Text>
       </View>
       <View className="w-full pb-2 flex flex-row gap-16 justify-center items-center">
@@ -83,7 +82,7 @@ const Countdown = ({ nextGame, team }: Props) => {
         />
         <Text
           style={{ fontFamily: "Teko" }}
-          className="text-[20%] text-center tracking-widest"
+          className="text-[15%] text-center tracking-widest"
         >
           {nextGame.next_game?.neutral_site ? "VS" : homeGame ? "VS" : "AT"}
         </Text>
@@ -100,13 +99,13 @@ const Countdown = ({ nextGame, team }: Props) => {
         <View className="flex-1 w-full p-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[30%] text-center tracking-widest"
+            className="text-[25%] text-center tracking-widest"
           >
             {timeLeft.days}
           </Text>
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[20%] text-center tracking-widest text-black/50"
+            className="text-[15%] text-center tracking-widest text-black/50"
           >
             DAYS
           </Text>
@@ -114,13 +113,13 @@ const Countdown = ({ nextGame, team }: Props) => {
         <View className="flex-1 w-full p-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[30%] text-center tracking-widest"
+            className="text-[25%] text-center tracking-widest"
           >
             {timeLeft.hours}
           </Text>
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[20%] text-center tracking-widest text-black/50"
+            className="text-[15%] text-center tracking-widest text-black/50"
           >
             HOURS
           </Text>
@@ -128,13 +127,13 @@ const Countdown = ({ nextGame, team }: Props) => {
         <View className="flex-1 w-full p-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[30%] text-center tracking-widest"
+            className="text-[25%] text-center tracking-widest"
           >
             {timeLeft.minutes}
           </Text>
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[20%] text-center tracking-widest text-black/50"
+            className="text-[15%] text-center tracking-widest text-black/50"
           >
             MINUTES
           </Text>
@@ -142,13 +141,13 @@ const Countdown = ({ nextGame, team }: Props) => {
         <View className="flex-1 w-full p-2 flex flex-col justify-center items-center">
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[30%] text-center tracking-widest"
+            className="text-[25%] text-center tracking-widest"
           >
             {timeLeft.seconds}
           </Text>
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[20%] text-center tracking-widest text-black/50"
+            className="text-[15%] text-center tracking-widest text-black/50"
           >
             SECONDS
           </Text>
