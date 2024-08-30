@@ -24,14 +24,14 @@ const Header = () => {
         {rank ? (
           <Text
             style={{ fontFamily: "Teko" }}
-            className="text-[20%] text-center tracking-widest text-black/50"
+            className="text-[22%] text-center tracking-widest text-black/50"
           >
             {rank}
           </Text>
         ) : null}
         <Text
           style={{ fontFamily: "Teko" }}
-          className={clsx("text-[20%] text-center tracking-widest", {
+          className={clsx("text-[22%] text-center tracking-widest", {
             "text-sec-primary": pathname === "/",
             "text-alabama": pathname === "/alabama",
             "text-arkansas": pathname === "/arkansas",
@@ -66,7 +66,7 @@ const Header = () => {
           <Pressable>
             <Text
               style={{ fontFamily: "Teko" }}
-              className="text-[15%] text-center tracking-widest"
+              className="text-[17%] text-center tracking-widest"
             >
               SEC
             </Text>
@@ -116,7 +116,7 @@ const Header = () => {
             <Pressable>
               <Text
                 style={{ fontFamily: "Teko" }}
-                className="text-[15%] text-center tracking-widest"
+                className="text-[17%] text-center tracking-widest"
               >
                 {team.name.toUpperCase()}
               </Text>
