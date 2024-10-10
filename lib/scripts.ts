@@ -1,27 +1,18 @@
-import { Team } from "./types";
+import { NextGame, Team } from "./types";
 
-export const getClasses = (type: string, team: string) => {
-  const classes: { [key: string]: string } = {
-    sec: `${type}-sec-primary`,
-    alabama: `${type}-alabama`,
-    arkansas: `${type}-arkansas`,
-    auburn: `${type}-auburn-primary`,
-    florida: `${type}-florida-primary`,
-    georgia: `${type}-georgia`,
-    kentucky: `${type}-kentucky`,
-    lsu: `${type}-lsu-primary`,
-    mississippi_state: `${type}-mississippi-state`,
-    missouri: `${type}-missouri`,
-    oklahoma: `${type}-oklahoma`,
-    ole_miss: `${type}-ole-miss-secondary`,
-    south_carolina: `${type}-south-carolina`,
-    tennessee: `${type}-tennessee-primary`,
-    texas: `${type}-texas`,
-    "texas_a&m": `${type}-texas-a&m`,
-    vanderbilt: `${type}-vanderbilt`,
-  };
+export const countRankedTeams = (teams: NextGame[]) => {
+  return teams.filter((team) => team.team_rank !== null).length;
+};
 
-  return classes[team];
+export const getCombinedRecord = (games: NextGame[]) => {
+  return games.reduce(
+    (acc, game) => {
+      acc.totalWins += game.total_wins || 0;
+      acc.totalLosses += game.total_losses || 0;
+      return acc;
+    },
+    { totalWins: 0, totalLosses: 0 }
+  );
 };
 
 export const getDecodedName = (team: string) => {
@@ -30,7 +21,7 @@ export const getDecodedName = (team: string) => {
 
 export const getHeaderTitle = (path: string, teams?: Team[]) => {
   if (path === "/") {
-    return ["SOUTHEASTERN CONFERENCE", null];
+    return { name: "SOUTHEASTERN", mascot: "CONFERENCE", team_rank: null };
   }
 
   const decodedPath = path.replace(/^\//, "");
@@ -40,10 +31,10 @@ export const getHeaderTitle = (path: string, teams?: Team[]) => {
 
   if (matchedTeam) {
     const { name, mascot, team_rank } = matchedTeam;
-    return [`${name.toUpperCase()} ${mascot.toUpperCase()}`, team_rank];
+    return { name, mascot, team_rank };
   }
 
-  return [null, null];
+  return { name: null, mascot: null, team_rank: null };
 };
 
 export const getTimeUntil = (date: string, time: string) => {

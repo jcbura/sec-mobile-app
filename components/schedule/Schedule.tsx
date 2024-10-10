@@ -12,10 +12,12 @@ interface Props {
 
 const Schedule = ({ nextGame, team }: Props) => {
   return (
-    <View className="w-full py-2 flex flex-col gap-2 justify-center items-center">
-      <Countdown nextGame={nextGame} team={team} />
-      <Record team={team} />
-      <GameList team={team} />
+    <View className="w-full px-6 flex flex-col justify-center items-center">
+      <View className="w-full py-6 flex flex-col gap-6 justify-center items-center">
+        <Countdown nextGame={nextGame} team={team} />
+        <Record team={team} />
+        <GameList team={team} />
+      </View>
     </View>
   );
 };

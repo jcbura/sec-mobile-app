@@ -66,9 +66,9 @@ const Index = () => {
     );
 
   return (
-    <ScrollView>
+    <ScrollView className="bg-white">
       <TeamsComp game={game} alpha={alpha} rank={rank} record={record} />
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
     </ScrollView>
   );
 };

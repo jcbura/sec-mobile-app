@@ -6,7 +6,7 @@ import TeamCard from "./TeamCard";
 const TeamList = () => {
   const { teams } = useTeam();
   return (
-    <View className="w-full flex flex-col gap-2 justify-center items-center">
+    <View className="w-full flex flex-col gap-6 justify-center items-center">
       {teams.map((team) => (
         <TeamCard key={team.id} nextGame={team} />
       ))}

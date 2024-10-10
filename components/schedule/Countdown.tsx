@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Countdown = ({ nextGame, team }: Props) => {
-  const [date] = formatDate(nextGame.next_game?.game_date || "", "short");
+  const [date, day] = formatDate(nextGame.next_game?.game_date || "", "short");
   const time = formatTime(nextGame.next_game?.game_time || "");
 
   const homeGame = nextGame.next_game?.home_team === team.name;
@@ -58,100 +58,92 @@ const Countdown = ({ nextGame, team }: Props) => {
   }, [nextGame.next_game?.game_date, nextGame.next_game?.game_time]);
 
   return (
-    <View className="w-[95%] flex flex-col gap-2 justify-center items-center bg-white border border-neutral-300">
-      <View className="w-full px-4 pt-2 flex flex-row justify-between items-center">
-        <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[22%] text-center tracking-widest text-black/50"
-        >
-          NEXT GAME
-        </Text>
-        <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[22%] text-center tracking-widest"
-        >{`${date.toUpperCase()} - ${time.toUpperCase()}`}</Text>
+    <View className="w-full flex flex-col justify-center items-center border border-neutral-350">
+      <View className="w-full pt-2 flex flex-col gap-3 justify-center items-center">
+        <View className="w-full px-6 flex flex-row justify-center items-center">
+          <View className="flex-[2_2_0%] flex flex-col justify-center items-center">
+            <Image
+              source={
+                homeGame
+                  ? teamImages[decodedOpponent as teamName]
+                  : teamImages[decodedTeam as teamName]
+              }
+              className="w-16 h-16"
+            />
+          </View>
+          <View className="flex-1 flex flex-col justify-center items-center">
+            <Text
+              style={{ fontFamily: "Raj-Bold" }}
+              className="text-2xl font-bold uppercase"
+            >
+              {nextGame.next_game?.neutral_site ? "vs" : homeGame ? "vs" : "at"}
+            </Text>
+          </View>
+          <View className="flex-[2_2_0%] flex flex-col justify-center items-center">
+            <Image
+              source={
+                homeGame
+                  ? teamImages[decodedTeam as teamName]
+                  : teamImages[decodedOpponent as teamName]
+              }
+              className="w-16 h-16"
+            />
+          </View>
+        </View>
+        <View className="w-full flex flex-row justify-center items-center border-neutral-350 border-t border-b-0 border-l-0 border-r-0">
+          <View className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 border-t-0 border-b-0 border-l-0 border-r">
+            <Text style={{ fontFamily: "Raj-Bold" }} className="text-2xl">
+              {timeLeft.days}
+            </Text>
+            <Text
+              style={{ fontFamily: "Raj-Medium" }}
+              className="text-lg uppercase"
+            >
+              days
+            </Text>
+          </View>
+          <View className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 border-t-0 border-b-0 border-l-0 border-r">
+            <Text style={{ fontFamily: "Raj-Bold" }} className="text-2xl">
+              {timeLeft.hours}
+            </Text>
+            <Text
+              style={{ fontFamily: "Raj-Medium" }}
+              className="text-lg uppercase"
+            >
+              hours
+            </Text>
+          </View>
+          <View className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 border-t-0 border-b-0 border-l-0 border-r">
+            <Text style={{ fontFamily: "Raj-Bold" }} className="text-2xl">
+              {timeLeft.minutes}
+            </Text>
+            <Text
+              style={{ fontFamily: "Raj-Medium" }}
+              className="text-lg uppercase"
+            >
+              minutes
+            </Text>
+          </View>
+          <View className="flex-1 py-2 flex flex-col justify-center items-center">
+            <Text style={{ fontFamily: "Raj-Bold" }} className="text-2xl">
+              {timeLeft.seconds}
+            </Text>
+            <Text
+              style={{ fontFamily: "Raj-Medium" }}
+              className="text-lg uppercase"
+            >
+              seconds
+            </Text>
+          </View>
+        </View>
       </View>
-      <View className="w-full pb-2 flex flex-row gap-16 justify-center items-center">
-        <Image
-          source={
-            homeGame
-              ? teamImages[decodedOpponent as teamName]
-              : teamImages[decodedTeam as teamName]
-          }
-          className="w-16 h-16"
-        />
+      <View className="w-full h-12 px-6 flex flex-row justify-start items-center bg-neutral-350">
         <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[17%] text-center tracking-widest"
+          style={{ fontFamily: "Raj-Medium" }}
+          className="text-2xl text-white uppercase"
         >
-          {nextGame.next_game?.neutral_site ? "VS" : homeGame ? "VS" : "AT"}
+          <Text style={{ fontFamily: "Raj-Bold" }}>{time}</Text> {day}, {date}
         </Text>
-        <Image
-          source={
-            homeGame
-              ? teamImages[decodedTeam as teamName]
-              : teamImages[decodedOpponent as teamName]
-          }
-          className="w-16 h-16"
-        />
-      </View>
-      <View className="w-full flex flex-row justify-center items-center border border-neutral-300 border-t border-b-0 border-l-0 border-r-0">
-        <View className="flex-1 w-full p-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[27%] text-center tracking-widest"
-          >
-            {timeLeft.days}
-          </Text>
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[17%] text-center tracking-widest text-black/50"
-          >
-            DAYS
-          </Text>
-        </View>
-        <View className="flex-1 w-full p-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[27%] text-center tracking-widest"
-          >
-            {timeLeft.hours}
-          </Text>
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[17%] text-center tracking-widest text-black/50"
-          >
-            HOURS
-          </Text>
-        </View>
-        <View className="flex-1 w-full p-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-l-0 border-r">
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[27%] text-center tracking-widest"
-          >
-            {timeLeft.minutes}
-          </Text>
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[17%] text-center tracking-widest text-black/50"
-          >
-            MINUTES
-          </Text>
-        </View>
-        <View className="flex-1 w-full p-2 flex flex-col justify-center items-center">
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[27%] text-center tracking-widest"
-          >
-            {timeLeft.seconds}
-          </Text>
-          <Text
-            style={{ fontFamily: "Teko" }}
-            className="text-[17%] text-center tracking-widest text-black/50"
-          >
-            SECONDS
-          </Text>
-        </View>
       </View>
     </View>
   );

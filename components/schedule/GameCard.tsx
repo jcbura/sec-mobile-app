@@ -33,274 +33,105 @@ const GameCard = ({ game, team }: Props) => {
   const decodedOpponent = getDecodedName(opponent);
 
   return (
-    <View className="w-[95%] flex flex-col justify-center items-center">
-      <View
-        className={clsx(
-          "w-full flex flex-row justify-center items-center border border-transparent border-t border-b-0 border-l border-r",
-          {
-            "bg-alabama": team.name === "Alabama",
-            "bg-arkansas": team.name === "Arkansas",
-            "bg-auburn-primary": team.name === "Auburn",
-            "bg-florida-primary": team.name === "Florida",
-            "bg-georgia": team.name === "Georgia",
-            "bg-kentucky": team.name === "Kentucky",
-            "bg-lsu-primary": team.name === "LSU",
-            "bg-mississippi-state": team.name === "Mississippi State",
-            "bg-missouri": team.name === "Missouri",
-            "bg-oklahoma": team.name === "Oklahoma",
-            "bg-ole-miss-primary": team.name === "Ole Miss",
-            "bg-south-carolina": team.name === "South Carolina",
-            "bg-tennessee-primary": team.name === "Tennessee",
-            "bg-texas": team.name === "Texas",
-            "bg-texas-a&m": team.name === "Texas A&M",
-            "bg-vanderbilt": team.name === "Vanderbilt",
-          }
-        )}
-      >
-        <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[22%] text-center tracking-widest py-2 text-white"
-        >{`${day.toUpperCase()} ${date.toUpperCase()}`}</Text>
-      </View>
-      <View className="w-full p-2 flex flex-col gap-2 justify-center items-center bg-white border border-neutral-300 border-t-0 border-b-0 border-l border-r">
-        <View className="flex flex-col gap-2 justify-center items-center">
-          {game.conference_game ? (
-            <Link
-              href={`/${getDecodedName(opponent)}`}
-              asChild
-              className="flex flex-row justify-center items-center"
-            >
-              <Pressable className="flex flex-col gap-2 justify-center items-center">
-                <Image
-                  source={teamImages[decodedOpponent as teamName]}
-                  className="w-16 h-16"
-                />
-                <View className="flex flex-col justify-center items-center">
-                  <View className="flex flex-row gap-2 justify-center items-center">
-                    {opponentRank && (
-                      <Text
-                        style={{ fontFamily: "Teko" }}
-                        className="text-[22%] text-center tracking-widest text-black/50"
-                      >
-                        {opponentRank}
-                      </Text>
-                    )}
-                    <Text
-                      style={{ fontFamily: "Teko" }}
-                      className="text-[22%] text-center tracking-widest"
-                    >
-                      {opponent.toUpperCase()}
-                    </Text>
-                  </View>
-                  <Text
-                    style={{ fontFamily: "Teko" }}
-                    className="text-[17%] text-center tracking-widest text-black/50"
-                  >
-                    {opponentMascot.toUpperCase()}
-                  </Text>
-                </View>
-              </Pressable>
-            </Link>
-          ) : (
-            <View className="flex flex-row justify-center items-center">
-              <View className="flex flex-col gap-2 justify-center items-center">
-                <Image
-                  source={teamImages[decodedOpponent as teamName]}
-                  className="w-16 h-16"
-                />
-                <View className="flex flex-col justify-center items-center">
-                  <View className="flex flex-row gap-2 justify-center items-center">
-                    {opponentRank && (
-                      <Text
-                        style={{ fontFamily: "Teko" }}
-                        className="text-[22%] text-center tracking-widest text-black/50"
-                      >
-                        {opponentRank}
-                      </Text>
-                    )}
-                    <Text
-                      style={{ fontFamily: "Teko" }}
-                      className="text-[22%] text-center tracking-widest"
-                    >
-                      {opponent.toUpperCase()}
-                    </Text>
-                  </View>
-                  <Text
-                    style={{ fontFamily: "Teko" }}
-                    className="text-[17%] text-center tracking-widest text-black/50"
-                  >
-                    {opponentMascot.toUpperCase()}
-                  </Text>
-                </View>
-              </View>
-            </View>
-          )}
-          <View className="flex flex-col justify-center items-center">
-            <Text
-              style={{ fontFamily: "Teko" }}
-              className="text-[22%] text-center tracking-widest"
-            >
-              {game.neutral_site ? "NEUTRAL" : homeGame ? "HOME" : "AWAY"}
-            </Text>
-            <Text
-              style={{ fontFamily: "Teko" }}
-              className="text-[17%] text-center tracking-widest text-black/50"
-            >
-              {game.stadium.toUpperCase()}
-            </Text>
-          </View>
-          <View className="flex flex-row gap-2 justify-center items-center">
-            {game.game_played ? (
-              <>
-                <Text
-                  style={{ fontFamily: "Teko" }}
-                  className={clsx("text-[27%] text-center tracking-widest", {
-                    "text-green-500": gameResult === "W",
-                    "text-red-500": gameResult === "L",
-                  })}
-                >
-                  {gameResult}
-                </Text>
-                <View className="flex flex-row gap-2 justify-center items-center">
-                  <Text
-                    style={{ fontFamily: "Teko" }}
-                    className={clsx("text-[27%] text-center tracking-widest", {
-                      "text-alabama":
-                        game.away_score === teamScore &&
-                        team.name === "Alabama",
-                      "text-arkansas":
-                        game.away_score === teamScore &&
-                        team.name === "Arkansas",
-                      "text-auburn-primary":
-                        game.away_score === teamScore && team.name === "Auburn",
-                      "text-florida-primary":
-                        game.away_score === teamScore &&
-                        team.name === "Florida",
-                      "text-georgia":
-                        game.away_score === teamScore &&
-                        team.name === "Georgia",
-                      "text-kentucky":
-                        game.away_score === teamScore &&
-                        team.name === "Kentucky",
-                      "text-lsu-primary":
-                        game.away_score === teamScore && team.name === "LSU",
-                      "text-mississippi-state":
-                        game.away_score === teamScore &&
-                        team.name === "Mississippi State",
-                      "text-missouri":
-                        game.away_score === teamScore &&
-                        team.name === "Missouri",
-                      "text-oklahoma":
-                        game.away_score === teamScore &&
-                        team.name === "Oklahoma",
-                      "text-ole-miss-primary":
-                        game.away_score === teamScore &&
-                        team.name === "Ole Miss",
-                      "text-south-carolina":
-                        game.away_score === teamScore &&
-                        team.name === "South Carolina",
-                      "text-tennessee-primary":
-                        game.away_score === teamScore &&
-                        team.name === "Tennessee",
-                      "text-texas":
-                        game.away_score === teamScore && team.name === "Texas",
-                      "text-texas-a&m":
-                        game.away_score === teamScore &&
-                        team.name === "Texas A&M",
-                      "text-vanderbilt":
-                        game.away_score === teamScore &&
-                        team.name === "Vanderbilt",
-                    })}
-                  >
-                    {game.away_score}
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Teko" }}
-                    className={clsx(
-                      "text-[27%] text-center tracking-widest",
-                      {}
-                    )}
-                  >
-                    -
-                  </Text>
-                  <Text
-                    style={{ fontFamily: "Teko" }}
-                    className={clsx("text-[27%] text-center tracking-widest", {
-                      "text-alabama":
-                        game.home_score === teamScore &&
-                        team.name === "Alabama",
-                      "text-arkansas":
-                        game.home_score === teamScore &&
-                        team.name === "Arkansas",
-                      "text-auburn-primary":
-                        game.home_score === teamScore && team.name === "Auburn",
-                      "text-florida-primary":
-                        game.home_score === teamScore &&
-                        team.name === "Florida",
-                      "text-georgia":
-                        game.home_score === teamScore &&
-                        team.name === "Georgia",
-                      "text-kentucky":
-                        game.home_score === teamScore &&
-                        team.name === "Kentucky",
-                      "text-lsu-primary":
-                        game.home_score === teamScore && team.name === "LSU",
-                      "text-mississippi-state":
-                        game.home_score === teamScore &&
-                        team.name === "Mississippi State",
-                      "text-missouri":
-                        game.home_score === teamScore &&
-                        team.name === "Missouri",
-                      "text-oklahoma":
-                        game.home_score === teamScore &&
-                        team.name === "Oklahoma",
-                      "text-ole-miss-primary":
-                        game.home_score === teamScore &&
-                        team.name === "Ole Miss",
-                      "text-south-carolina":
-                        game.home_score === teamScore &&
-                        team.name === "South Carolina",
-                      "text-tennessee-primary":
-                        game.home_score === teamScore &&
-                        team.name === "Tennessee",
-                      "text-texas":
-                        game.home_score === teamScore && team.name === "Texas",
-                      "text-texas-a&m":
-                        game.home_score === teamScore &&
-                        team.name === "Texas A&M",
-                      "text-vanderbilt":
-                        game.home_score === teamScore &&
-                        team.name === "Vanderbilt",
-                    })}
-                  >
-                    {game.home_score}
-                  </Text>
-                </View>
-              </>
-            ) : (
-              <Text
-                style={{ fontFamily: "Teko" }}
-                className="text-[27%] text-center tracking-widest"
-              >
-                {time}
-              </Text>
-            )}
-          </View>
-        </View>
-      </View>
-      <View className="w-full p-2 flex flex-row justify-center items-center bg-neutral-300 border border-transparent border-t-0 border-b border-l border-r">
+    <View className="w-full flex flex-col justify-center items-center border border-neutral-350">
+      <View className="w-full px-6 py-2 flex flex-col gap-3 justify-center items-center">
         {game.conference_game ? (
-          <Link href="/" asChild>
+          <Link
+            href={`/${getDecodedName(opponent)}`}
+            asChild
+            className="flex flex-col justify-center items-center"
+          >
             <Pressable>
               <Image
-                source={secImages[decodedTeam as TeamEnum]}
-                className="w-8 h-8"
+                source={teamImages[decodedOpponent as teamName]}
+                className="w-16 h-16"
               />
+              <View className="flex flex-col justify-center items-center">
+                <Text
+                  style={{ fontFamily: "Raj-Medium" }}
+                  className="text-2xl uppercase"
+                >
+                  {opponentRank ? `${opponentRank} ` : null}
+                  <Text style={{ fontFamily: "Raj-Bold" }}>{opponent}</Text>
+                </Text>
+                <Text
+                  style={{ fontFamily: "Raj-Medium" }}
+                  className="text-lg uppercase"
+                >
+                  {opponentMascot}
+                </Text>
+              </View>
             </Pressable>
           </Link>
         ) : (
-          <View className="w-8 h-8"></View>
+          <View className="flex flex-col justify-center items-center">
+            <Image
+              source={teamImages[decodedOpponent as teamName]}
+              className="w-16 h-16"
+            />
+            <View className="flex flex-col justify-center items-center">
+              <Text
+                style={{ fontFamily: "Raj-Medium" }}
+                className="text-2xl uppercase"
+              >
+                {opponentRank ? `${opponentRank} ` : null}
+                <Text style={{ fontFamily: "Raj-Bold" }}>{opponent}</Text>
+              </Text>
+              <Text
+                style={{ fontFamily: "Raj-Medium" }}
+                className="text-lg uppercase"
+              >
+                {opponentMascot}
+              </Text>
+            </View>
+          </View>
         )}
+        <View className="flex flex-col justify-center items-center">
+          <Text
+            style={{ fontFamily: "Raj-Bold" }}
+            className="text-2xl uppercase"
+          >
+            {game.neutral_site ? "neutral" : homeGame ? "home" : "away"}
+          </Text>
+          <Text
+            style={{ fontFamily: "Raj-Medium" }}
+            className="text-lg text-center uppercase"
+          >
+            {game.stadium}
+          </Text>
+        </View>
+      </View>
+      <View className="w-full h-12 px-6 flex flex-row justify-between items-center bg-neutral-350">
+        {game.game_played ? (
+          <Text
+            style={{ fontFamily: "Raj-Medium" }}
+            className="text-2xl text-white uppercase"
+          >
+            <Text
+              style={{ fontFamily: "Raj-Bold" }}
+              className={clsx("", {
+                "text-red-600": gameResult === "L",
+                "text-green-600": gameResult === "W",
+              })}
+            >
+              {gameResult}
+            </Text>{" "}
+            {teamScore} - {opponentScore}
+          </Text>
+        ) : (
+          <Text
+            style={{ fontFamily: "Raj-Medium" }}
+            className="text-2xl text-white uppercase"
+          >
+            <Text style={{ fontFamily: "Raj-Bold" }}>{time}</Text> {day}, {date}
+          </Text>
+        )}
+        {game.conference_game ? (
+          <Image
+            source={secImages[decodedTeam as TeamEnum]}
+            className="w-8 h-8"
+          />
+        ) : null}
       </View>
     </View>
   );

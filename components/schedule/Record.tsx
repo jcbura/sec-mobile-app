@@ -7,30 +7,45 @@ interface Props {
 }
 
 const Record = ({ team }: Props) => {
+  const winPercentage =
+    (team.total_wins || 0) /
+    ((team.total_wins || 0) + (team.total_losses || 0));
+
   return (
-    <View className="w-[95%] flex flex-row justify-center items-center bg-white border border-neutral-300">
-      <View className="flex-1 py-2 flex flex-col justify-center items-center border border-neutral-300 border-t-0 border-b-0 border-r border-l-0">
-        <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[27%] text-center tracking-widest"
-        >{`${team.total_wins} - ${team.total_losses}`}</Text>
-        <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[17%] text-center tracking-widest text-black/50"
-        >
-          OVERALL
-        </Text>
+    <View className="w-full flex flex-col justify-center items-center border border-neutral-350">
+      <View className="w-full flex flex-row justify-center items-center">
+        <View className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 border-t-0 border-b-0 border-l-0 border-r">
+          <Text style={{ fontFamily: "Raj-Bold" }} className="text-2xl">
+            {team.total_wins} - {team.total_losses}
+          </Text>
+          <Text
+            style={{ fontFamily: "Raj-Medium" }}
+            className="text-lg uppercase"
+          >
+            overall
+          </Text>
+        </View>
+        <View className="flex-1 py-2 flex flex-col justify-center items-center">
+          <Text style={{ fontFamily: "Raj-Bold" }} className="text-2xl">
+            {team.conference_wins} - {team.conference_losses}
+          </Text>
+          <Text
+            style={{ fontFamily: "Raj-Medium" }}
+            className="text-lg uppercase"
+          >
+            conference
+          </Text>
+        </View>
       </View>
-      <View className="flex-1 flex flex-col justify-center items-center">
+      <View className="w-full h-12 px-6 flex flex-row justify-start items-center bg-neutral-350">
         <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[27%] text-center tracking-widest"
-        >{`${team.conference_wins} - ${team.conference_losses}`}</Text>
-        <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[17%] text-center tracking-widest text-black/50"
+          style={{ fontFamily: "Raj-Medium" }}
+          className="text-2xl text-white uppercase"
         >
-          CONFERENCE
+          <Text style={{ fontFamily: "Raj-Bold" }}>{`${
+            winPercentage ? winPercentage.toFixed(3) : "0.000"
+          }`}</Text>{" "}
+          win percentage
         </Text>
       </View>
     </View>

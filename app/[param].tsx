@@ -60,9 +60,9 @@ const Param = () => {
     );
 
   return (
-    <ScrollView>
+    <ScrollView className="bg-white">
       <Schedule nextGame={nextGame} team={team} />
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
     </ScrollView>
   );
 };

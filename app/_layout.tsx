@@ -9,7 +9,8 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    Teko: require("../assets/fonts/Teko-Bold.ttf"),
+    "Raj-Bold": require("../assets/fonts/Rajdhani-Bold.ttf"),
+    "Raj-Medium": require("../assets/fonts/Rajdhani-Medium.ttf"),
   });
 
   useEffect(() => {
