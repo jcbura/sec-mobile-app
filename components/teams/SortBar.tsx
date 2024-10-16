@@ -26,7 +26,11 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         >
           <Text
             style={{ fontFamily: "Raj-Bold" }}
-            className={clsx("text-2xl uppercase text-black dark:text-white", {
+            className={clsx("text-2xl uppercase", {
+              "text-black dark:text-white": !(
+                teams === alpha ||
+                (teams !== rank && teams !== record)
+              ),
               "text-blue-600 dark:text-blue-400":
                 teams === alpha || (teams !== rank && teams !== record),
             })}
@@ -40,7 +44,8 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         >
           <Text
             style={{ fontFamily: "Raj-Bold" }}
-            className={clsx("text-2xl uppercase text-black dark:text-white", {
+            className={clsx("text-2xl uppercase", {
+              "text-black dark:text-white": teams !== rank,
               "text-blue-600 dark:text-blue-400": teams === rank,
             })}
           >
@@ -53,7 +58,8 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         >
           <Text
             style={{ fontFamily: "Raj-Bold" }}
-            className={clsx("text-2xl uppercase text-black dark:text-white", {
+            className={clsx("text-2xl uppercase", {
+              "text-black dark:text-white": teams !== record,
               "text-blue-600 dark:text-blue-400": teams === record,
             })}
           >
