@@ -18,16 +18,16 @@ const SortBar = ({ alpha, rank, record }: Props) => {
   const combinedRecord = getCombinedRecord(alpha);
 
   return (
-    <View className="w-full flex flex-col justify-center items-center border border-neutral-350">
+    <View className="w-full flex flex-col justify-center items-center border border-neutral-350 dark:border-neutral-700 dark:bg-neutral-700">
       <View className="w-full flex flex-row justify-center items-center">
         <Pressable
           onPress={() => setTeams(alpha)}
-          className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 border-t-0 border-b-0 border-l-0 border-r"
+          className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 dark:border-neutral-800 border-t-0 border-b-0 border-l-0 border-r"
         >
           <Text
             style={{ fontFamily: "Raj-Bold" }}
-            className={clsx("text-2xl uppercase", {
-              "text-blue-600":
+            className={clsx("text-2xl uppercase text-black dark:text-white", {
+              "text-blue-600 dark:text-blue-400":
                 teams === alpha || (teams !== rank && teams !== record),
             })}
           >
@@ -36,12 +36,12 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         </Pressable>
         <Pressable
           onPress={() => setTeams(rank)}
-          className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 border-t-0 border-b-0 border-l-0 border-r"
+          className="flex-1 py-2 flex flex-col justify-center items-center border-neutral-350 dark:border-neutral-800 border-t-0 border-b-0 border-l-0 border-r"
         >
           <Text
             style={{ fontFamily: "Raj-Bold" }}
-            className={clsx("text-2xl uppercase", {
-              "text-blue-600": teams === rank,
+            className={clsx("text-2xl uppercase text-black dark:text-white", {
+              "text-blue-600 dark:text-blue-400": teams === rank,
             })}
           >
             rank
@@ -53,15 +53,15 @@ const SortBar = ({ alpha, rank, record }: Props) => {
         >
           <Text
             style={{ fontFamily: "Raj-Bold" }}
-            className={clsx("text-2xl uppercase", {
-              "text-blue-600": teams === record,
+            className={clsx("text-2xl uppercase text-black dark:text-white", {
+              "text-blue-600 dark:text-blue-400": teams === record,
             })}
           >
             record
           </Text>
         </Pressable>
       </View>
-      <View className="w-full h-12 px-6 flex flex-row justify-start items-center bg-neutral-350">
+      <View className="w-full h-12 px-6 flex flex-row justify-start items-center bg-neutral-350 dark:bg-neutral-800">
         {teams === alpha || (teams !== rank && teams !== record) ? (
           <Text
             style={{ fontFamily: "Raj-Medium" }}

@@ -42,16 +42,16 @@ const Index = () => {
 
   if (!isConnected)
     return (
-      <View className="w-full h-full flex flex-col justify-center items-center">
+      <View className="bg-white dark:bg-neutral-800 w-full h-full flex flex-col justify-center items-center">
         <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[22%] text-center tracking-widest"
+          style={{ fontFamily: "Raj-Bold" }}
+          className="text-2xl text-center text-black dark:text-white"
         >
           CANNOT CONNECT TO INTERNET
         </Text>
         <Text
-          style={{ fontFamily: "Teko" }}
-          className="text-[17%] text-center tracking-widest text-black/50"
+          style={{ fontFamily: "Raj-Medium" }}
+          className="text-lg text-center text-black dark:text-white"
         >
           PLEASE TRY AGAIN LATER
         </Text>
@@ -61,12 +61,12 @@ const Index = () => {
   if (!game || !alpha || !rank || !record)
     return (
       <View className="w-full h-full flex flex-row justify-center items-center">
-        <ActivityIndicator />
+        <ActivityIndicator className="w-full h-full bg-white dark:bg-neutral-800" />
       </View>
     );
 
   return (
-    <ScrollView className="bg-white">
+    <ScrollView className="bg-white dark:bg-neutral-800">
       <TeamsComp game={game} alpha={alpha} rank={rank} record={record} />
       <StatusBar style="light" />
     </ScrollView>

@@ -53,7 +53,7 @@ const Header = () => {
           </Text>
         </View>
       </View>
-      <View className="w-full h-[45px] flex flex-row justify-center items-center bg-neutral-350">
+      <View className="w-full h-[45px] flex flex-row justify-center items-center bg-neutral-350 dark:bg-neutral-700">
         <View className="w-full py-3 flex flex-row justify-center items-center">
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <Link

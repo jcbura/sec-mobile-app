@@ -33,7 +33,7 @@ const GameCard = ({ game, team }: Props) => {
   const decodedOpponent = getDecodedName(opponent);
 
   return (
-    <View className="w-full flex flex-col justify-center items-center border border-neutral-350">
+    <View className="w-full flex flex-col justify-center items-center border border-neutral-350 dark:border-neutral-700 dark:bg-neutral-700">
       <View className="w-full px-6 py-2 flex flex-col gap-3 justify-center items-center">
         {game.conference_game ? (
           <Link
@@ -49,14 +49,14 @@ const GameCard = ({ game, team }: Props) => {
               <View className="flex flex-col justify-center items-center">
                 <Text
                   style={{ fontFamily: "Raj-Medium" }}
-                  className="text-2xl uppercase"
+                  className="text-2xl uppercase text-black dark:text-white"
                 >
                   {opponentRank ? `${opponentRank} ` : null}
                   <Text style={{ fontFamily: "Raj-Bold" }}>{opponent}</Text>
                 </Text>
                 <Text
                   style={{ fontFamily: "Raj-Medium" }}
-                  className="text-lg uppercase"
+                  className="text-lg uppercase text-black dark:text-white"
                 >
                   {opponentMascot}
                 </Text>
@@ -72,14 +72,14 @@ const GameCard = ({ game, team }: Props) => {
             <View className="flex flex-col justify-center items-center">
               <Text
                 style={{ fontFamily: "Raj-Medium" }}
-                className="text-2xl uppercase"
+                className="text-2xl uppercase text-black dark:text-white"
               >
                 {opponentRank ? `${opponentRank} ` : null}
                 <Text style={{ fontFamily: "Raj-Bold" }}>{opponent}</Text>
               </Text>
               <Text
                 style={{ fontFamily: "Raj-Medium" }}
-                className="text-lg uppercase"
+                className="text-lg uppercase text-black dark:text-white"
               >
                 {opponentMascot}
               </Text>
@@ -89,19 +89,19 @@ const GameCard = ({ game, team }: Props) => {
         <View className="flex flex-col justify-center items-center">
           <Text
             style={{ fontFamily: "Raj-Bold" }}
-            className="text-2xl uppercase"
+            className="text-2xl uppercase text-black dark:text-white"
           >
             {game.neutral_site ? "neutral" : homeGame ? "home" : "away"}
           </Text>
           <Text
             style={{ fontFamily: "Raj-Medium" }}
-            className="text-lg text-center uppercase"
+            className="text-lg text-center uppercase text-black dark:text-white"
           >
             {game.stadium}
           </Text>
         </View>
       </View>
-      <View className="w-full h-12 px-6 flex flex-row justify-between items-center bg-neutral-350">
+      <View className="w-full h-12 px-6 flex flex-row justify-between items-center bg-neutral-350 dark:bg-neutral-800">
         {game.game_played ? (
           <Text
             style={{ fontFamily: "Raj-Medium" }}
@@ -110,8 +110,8 @@ const GameCard = ({ game, team }: Props) => {
             <Text
               style={{ fontFamily: "Raj-Bold" }}
               className={clsx("", {
-                "text-red-600": gameResult === "L",
-                "text-green-600": gameResult === "W",
+                "text-red-600 dark:text-red-400": gameResult === "L",
+                "text-green-600 dark:text-green-400": gameResult === "W",
               })}
             >
               {gameResult}
