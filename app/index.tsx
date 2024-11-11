@@ -5,8 +5,8 @@ import { ActivityIndicator, ScrollView, Text, View } from "react-native";
 import NetInfo from "@react-native-community/netinfo";
 
 import TeamsComp from "@/components/teams/TeamsComp";
-import { fetchNextGames, fetchSECCGame } from "@/lib/data";
-import { Game, NextGame } from "@/lib/types";
+import { fetchNextGames, fetchOOCRecord, fetchSECCGame } from "@/lib/data";
+import { Game, NextGame, OOCRecord } from "@/lib/types";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
 
@@ -40,6 +40,11 @@ const Index = () => {
     () => fetchNextGames("record")
   );
 
+  const { data: oocRecord } = useSWR<OOCRecord>(
+    isConnected ? "oocRecord" : null,
+    () => fetchOOCRecord()
+  );
+
   if (!isConnected)
     return (
       <View className="bg-white dark:bg-neutral-800 w-full h-full flex flex-col justify-center items-center">
@@ -58,7 +63,7 @@ const Index = () => {
       </View>
     );
 
-  if (!game || !alpha || !rank || !record)
+  if (!game || !alpha || !rank || !record || !oocRecord)
     return (
       <View className="w-full h-full flex flex-row justify-center items-center">
         <ActivityIndicator className="w-full h-full bg-white dark:bg-neutral-800" />
@@ -67,7 +72,13 @@ const Index = () => {
 
   return (
     <ScrollView className="bg-white dark:bg-neutral-800">
-      <TeamsComp game={game} alpha={alpha} rank={rank} record={record} />
+      <TeamsComp
+        game={game}
+        alpha={alpha}
+        rank={rank}
+        record={record}
+        oocRecord={oocRecord}
+      />
       <StatusBar style="light" />
     </ScrollView>
   );

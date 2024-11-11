@@ -1,5 +1,5 @@
 import { getDecodedName } from "./scripts";
-import { Game, NextGame, SortEnum, Team, TeamEnum } from "./types";
+import { Game, NextGame, OOCRecord, SortEnum, Team, TeamEnum } from "./types";
 
 export const fetchTeams = async (sort?: SortEnum) => {
   try {
@@ -78,6 +78,22 @@ export const fetchNextGames = async (sort: SortEnum) => {
     })
   );
   return nextGames;
+};
+
+export const fetchOOCRecord = async () => {
+  try {
+    const res = await fetch(
+      `https://sec-web-backend-production.up.railway.app/api/games/ooc`
+    );
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.statusText}`);
+    }
+    const repo: OOCRecord = await res.json();
+    return repo;
+  } catch (error) {
+    console.error("Error:", error);
+    throw new Error("Failed to fetch out of conference record.");
+  }
 };
 
 export const fetchSECCGame = async () => {

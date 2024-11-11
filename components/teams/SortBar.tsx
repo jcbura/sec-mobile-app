@@ -1,21 +1,21 @@
 import { Pressable, Text, View } from "react-native";
 
 import { useTeam } from "./Context";
-import { NextGame } from "@/lib/types";
-import { countRankedTeams, getCombinedRecord } from "@/lib/scripts";
+import { NextGame, OOCRecord } from "@/lib/types";
+import { countRankedTeams } from "@/lib/scripts";
 import clsx from "clsx";
 
 interface Props {
   alpha: NextGame[];
   rank: NextGame[];
   record: NextGame[];
+  oocRecord: OOCRecord;
 }
 
-const SortBar = ({ alpha, rank, record }: Props) => {
+const SortBar = ({ alpha, rank, record, oocRecord }: Props) => {
   const { teams, setTeams } = useTeam();
 
   const rankedTeams = countRankedTeams(alpha);
-  const combinedRecord = getCombinedRecord(alpha);
 
   return (
     <View className="w-full flex flex-col justify-center items-center border border-neutral-350 dark:border-neutral-700 dark:bg-neutral-700">
@@ -81,8 +81,8 @@ const SortBar = ({ alpha, rank, record }: Props) => {
             style={{ fontFamily: "Raj-Medium" }}
             className="text-2xl text-white uppercase"
           >
-            <Text style={{ fontFamily: "Raj-Bold" }}>{rankedTeams}</Text> ap top
-            25 teams
+            <Text style={{ fontFamily: "Raj-Bold" }}>{rankedTeams}</Text> cfp
+            top 25 teams
           </Text>
         ) : null}
         {teams === record ? (
@@ -91,9 +91,9 @@ const SortBar = ({ alpha, rank, record }: Props) => {
             className="text-2xl text-white uppercase"
           >
             <Text style={{ fontFamily: "Raj-Bold" }}>
-              {combinedRecord.totalWins} - {combinedRecord.totalLosses}
+              {oocRecord.ooc_wins} - {oocRecord.ooc_losses}
             </Text>{" "}
-            combined record
+            ooc record
           </Text>
         ) : null}
       </View>

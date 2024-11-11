@@ -38,6 +38,11 @@ export type NextGame = {
   next_game?: Game | null;
 };
 
+export type OOCRecord = {
+  ooc_wins: number;
+  ooc_losses: number;
+};
+
 export type Team = {
   id: number;
   name: string;
