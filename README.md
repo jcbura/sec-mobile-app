@@ -1,4 +1,10 @@
-# Welcome to your Expo app 👋
+# SECFB App
+
+Repo for my SEC fooball iOS app. The app includes a countdown to the SEC Championship game, a list of all 16 SEC teams, and options to sort teams alphabetically, by rank, or by record. It also includes a countdown to each team's next game, their record, and their schedule. The frontend uses Next.js and Tailwind CSS.
+
+Link to [SECFB](https://apps.apple.com/us/app/secfb/id6670268133)
+
+---
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
