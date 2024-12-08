@@ -27,6 +27,8 @@ export const teamImages = {
   arkansas: require("@/assets/images/teams/arkansas.png"),
   auburn: require("@/assets/images/teams/auburn.png"),
   ball_state: require("@/assets/images/teams/ball_state.png"),
+  baylor: require("@/assets/images/teams/baylor.png"),
+  boise_state: require("@/assets/images/teams/boise_state.png"),
   boston_college: require("@/assets/images/teams/boston_college.png"),
   bowling_green: require("@/assets/images/teams/bowling_green.png"),
   buffalo: require("@/assets/images/teams/buffalo.png"),
@@ -34,6 +36,7 @@ export const teamImages = {
   chattanooga: require("@/assets/images/teams/chattanooga.png"),
   clemson: require("@/assets/images/teams/clemson.png"),
   colorado_state: require("@/assets/images/teams/colorado_state.png"),
+  duke: require("@/assets/images/teams/duke.png"),
   eastern_kentucky: require("@/assets/images/teams/eastern_kentucky.png"),
   florida: require("@/assets/images/teams/florida.png"),
   florida_state: require("@/assets/images/teams/florida_state.png"),
@@ -43,6 +46,9 @@ export const teamImages = {
   georgia_state: require("@/assets/images/teams/georgia_state.png"),
   georgia_tech: require("@/assets/images/teams/georgia_tech.png"),
   houston: require("@/assets/images/teams/houston.png"),
+  illinois: require("@/assets/images/teams/illinois.png"),
+  indiana: require("@/assets/images/teams/indiana.png"),
+  iowa: require("@/assets/images/teams/iowa.png"),
   kent_state: require("@/assets/images/teams/kent_state.png"),
   kentucky: require("@/assets/images/teams/kentucky.png"),
   louisiana_tech: require("@/assets/images/teams/louisiana_tech.png"),
@@ -59,6 +65,7 @@ export const teamImages = {
   mississippi_state: require("@/assets/images/teams/mississippi_state.png"),
   missouri: require("@/assets/images/teams/missouri.png"),
   murray_state: require("@/assets/images/teams/murray_state.png"),
+  navy: require("@/assets/images/teams/navy.png"),
   nc_state: require("@/assets/images/teams/nc_state.png"),
   new_mexico: require("@/assets/images/teams/new_mexico.png"),
   new_mexico_state: require("@/assets/images/teams/new_mexico_state.png"),
@@ -70,7 +77,10 @@ export const teamImages = {
   oklahoma_state: require("@/assets/images/teams/oklahoma_state.png"),
   old_dominion: require("@/assets/images/teams/old_dominion.png"),
   ole_miss: require("@/assets/images/teams/ole_miss.png"),
+  oregon: require("@/assets/images/teams/oregon.png"),
+  penn_state: require("@/assets/images/teams/penn_state.png"),
   samford: require("@/assets/images/teams/samford.png"),
+  smu: require("@/assets/images/teams/smu.png"),
   south_alabama: require("@/assets/images/teams/south_alabama.png"),
   south_carolina: require("@/assets/images/teams/south_carolina.png"),
   south_florida: require("@/assets/images/teams/south_florida.png"),
@@ -80,6 +90,7 @@ export const teamImages = {
   tennessee_tech: require("@/assets/images/teams/tennessee_tech.png"),
   texas: require("@/assets/images/teams/texas.png"),
   "texas_a&m": require("@/assets/images/teams/texas_a&m.png"),
+  texas_tech: require("@/assets/images/teams/texas_tech.png"),
   toledo: require("@/assets/images/teams/toledo.png"),
   tulane: require("@/assets/images/teams/tulane.png"),
   uab: require("@/assets/images/teams/uab.png"),
@@ -107,6 +118,8 @@ export type teamName =
   | "arkansas"
   | "auburn"
   | "ball_state"
+  | "baylor"
+  | "boise_state"
   | "boston_college"
   | "bowling_green"
   | "buffalo"
@@ -114,6 +127,7 @@ export type teamName =
   | "chattanooga"
   | "clemson"
   | "colorado_state"
+  | "duke"
   | "eastern_kentucky"
   | "florida"
   | "florida_state"
@@ -123,6 +137,9 @@ export type teamName =
   | "georgia_state"
   | "georgia_tech"
   | "houston"
+  | "illinois"
+  | "indiana"
+  | "iowa"
   | "kent_state"
   | "kentucky"
   | "louisiana_tech"
@@ -139,6 +156,7 @@ export type teamName =
   | "mississippi_state"
   | "missouri"
   | "murray_state"
+  | "navy"
   | "nc_state"
   | "new_mexico"
   | "new_mexico_state"
@@ -150,7 +168,10 @@ export type teamName =
   | "oklahoma_state"
   | "old_dominion"
   | "ole_miss"
+  | "oregon"
+  | "penn_state"
   | "samford"
+  | "smu"
   | "south_alabama"
   | "south_carolina"
   | "south_florida"
@@ -160,6 +181,7 @@ export type teamName =
   | "tennessee_tech"
   | "texas"
   | "texas_a&m"
+  | "texas_tech"
   | "toledo"
   | "tulane"
   | "uab"
