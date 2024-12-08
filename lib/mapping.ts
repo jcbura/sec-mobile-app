@@ -65,6 +65,7 @@ export const teamImages = {
   nicholls: require("@/assets/images/teams/nicholls.png"),
   notre_dame: require("@/assets/images/teams/notre_dame.png"),
   ohio: require("@/assets/images/teams/ohio.png"),
+  ohio_state: require("@/assets/images/teams/ohio_state.png"),
   oklahoma: require("@/assets/images/teams/oklahoma.png"),
   oklahoma_state: require("@/assets/images/teams/oklahoma_state.png"),
   old_dominion: require("@/assets/images/teams/old_dominion.png"),
@@ -144,6 +145,7 @@ export type teamName =
   | "nicholls"
   | "notre_dame"
   | "ohio"
+  | "ohio_state"
   | "oklahoma"
   | "oklahoma_state"
   | "old_dominion"
