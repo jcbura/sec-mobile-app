@@ -52,6 +52,41 @@ const Countdown = ({ game }: Props) => {
       ? game.home_mascot
       : game.away_mascot;
 
+  if (game.game_played)
+    return (
+      <View className="w-full flex flex-col justify-center items-center border border-neutral-350 dark:border-neutral-700 dark:bg-neutral-700">
+        <View className="w-full px-6 py-2 flex flex-col justify-center items-center">
+          <Image
+            source={teamImages[getDecodedName(winningTeam) as teamName]}
+            className="w-16 h-16"
+          />
+          <View className="flex flex-col justify-center items-center">
+            <Text
+              style={{ fontFamily: "Raj-Medium" }}
+              className="text-2xl uppercase text-black dark:text-white"
+            >
+              {winningRank}{" "}
+              <Text style={{ fontFamily: "Raj-Bold" }}>{winningTeam}</Text>
+            </Text>
+            <Text
+              style={{ fontFamily: "Raj-Medium" }}
+              className="text-lg uppercase text-black dark:text-white"
+            >
+              {winningMascot}
+            </Text>
+          </View>
+        </View>
+        <View className="w-full h-12 px-6 flex flex-row justify-start items-center bg-neutral-350 dark:bg-neutral-800">
+          <Text
+            style={{ fontFamily: "Raj-Medium" }}
+            className="text-2xl text-white uppercase"
+          >
+            <Text style={{ fontFamily: "Raj-Bold" }}>SEC</Text> CHAMPIONS
+          </Text>
+        </View>
+      </View>
+    );
+
   if (game.home_team !== "PLACEHOLDER" && game.away_team !== "PLACEHOLDER")
     return (
       <View className="w-full flex flex-col justify-center items-center border border-neutral-350 dark:border-neutral-700 dark:bg-neutral-700">
